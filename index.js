@@ -10,8 +10,11 @@
 var Composer = require('composer');
 
 module.exports = function(name) {
-  return function(app) {
-    Composer.call(app, name);
-    app.constructor.inherit(app.constructor, Composer);
+  return function() {
+    Composer.call(this, name);
+    for (var key in Composer.prototype) {
+      this.constructor.prototype[key] = Composer.prototype[key].bind(this);
+    }
   };
 };
+
