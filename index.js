@@ -11,10 +11,12 @@ var Composer = require('composer');
 
 module.exports = function(name) {
   return function() {
+    // original constructor reference
+    var ctor = this.constructor;
     Composer.call(this, name);
-    for (var key in Composer.prototype) {
-      this.constructor.prototype[key] = Composer.prototype[key].bind(this);
-    }
+    this.visit('define', Composer.prototype);
+
+    // restore original constructor
+    this.constructor = ctor;
   };
 };
-
