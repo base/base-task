@@ -7,10 +7,12 @@
 
 'use strict';
 
-var Composer = require('composer');
-
 module.exports = function(name) {
+  var Composer = require('composer');
+
   return function() {
+    if (this.isRegistered('base-tasks')) return;
+
     // original constructor reference
     var ctor = this.constructor;
     Composer.call(this, name);
