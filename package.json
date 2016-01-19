@@ -20,10 +20,11 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.8.0"
+    "composer": "^0.8.3"
   },
   "devDependencies": {
-    "base-methods": "^0.5.0",
+    "base": "^0.6.4",
+    "gulp-format-md": "^0.1.5",
     "mocha": "*"
   },
   "keywords": [
@@ -31,12 +32,18 @@
     "tasks"
   ],
   "verb": {
+    "reflinks": [
+      "base"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
     "related": {
       "list": [
-        "base-methods",
-        "base-plugins",
-        "base-options",
+        "base",
         "base-cli",
+        "base-options",
+        "base-plugins",
         "base-store"
       ]
     }
