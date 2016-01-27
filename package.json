@@ -20,10 +20,10 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.8.3"
+    "composer": "^0.9.0"
   },
   "devDependencies": {
-    "base": "^0.6.4",
+    "base": "^0.6.7",
     "gulp-format-md": "^0.1.5",
     "mocha": "*"
   },
@@ -32,6 +32,8 @@
     "tasks"
   ],
   "verb": {
+    "toc": false,
+    "layout": "default",
     "reflinks": [
       "base"
     ],
