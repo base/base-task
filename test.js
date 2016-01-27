@@ -12,6 +12,24 @@ describe('tasks', function() {
     base.use(tasks());
   });
 
+  it('should register the plugin', function() {
+    assert(base.isRegistered('base-tasks'));
+  });
+
+  it('should not register the plugin more than once', function() {
+    var count = 0;
+    base = new Base();
+    base.on('plugin', function() {
+      count++;
+    });
+
+    base.use(tasks());
+    base.use(tasks());
+    base.use(tasks());
+    base.use(tasks());
+    assert.equal(count, 1);
+  });
+
   it('should add a `tasks` property:', function() {
     assert(base.tasks);
     assert.equal(typeof base.tasks, 'object');
