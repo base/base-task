@@ -20,7 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.9.0"
+    "composer": "^0.10.0"
   },
   "devDependencies": {
     "base": "^0.6.7",
