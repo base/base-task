@@ -1,7 +1,7 @@
 {
   "name": "base-tasks",
   "description": "base-methods plugin that provides a very thin wrapper around <https://github.com/jonschlinkert/composer> for adding task methods to your application.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/jonschlinkert/base-tasks",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/base-tasks",
