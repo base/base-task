@@ -20,7 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.10.0"
+    "composer": "^0.11.0"
   },
   "devDependencies": {
     "base": "^0.6.7",
@@ -35,7 +35,9 @@
     "toc": false,
     "layout": "default",
     "reflinks": [
-      "base"
+      "base",
+      "base-watch",
+      "composer"
     ],
     "plugins": [
       "gulp-format-md"
@@ -44,6 +46,7 @@
       "list": [
         "base",
         "base-cli",
+        "base-generators",
         "base-options",
         "base-plugins",
         "base-store"
