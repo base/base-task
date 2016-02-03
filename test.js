@@ -13,7 +13,7 @@ describe('tasks', function() {
   });
 
   it('should register the plugin', function() {
-    assert(base.isRegistered('base-tasks'));
+    assert(base.isRegistered('base-task'));
   });
 
   it('should not register the plugin more than once', function() {
