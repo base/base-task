@@ -23,26 +23,35 @@
     "composer": "^0.11.0"
   },
   "devDependencies": {
-    "base": "^0.6.7",
+    "base": "^0.7.2",
     "gulp-format-md": "^0.1.5",
     "mocha": "*"
   },
   "keywords": [
     "base",
+    "baseplugin",
+    "build",
+    "composer",
+    "control",
+    "flow",
+    "generate",
+    "plugin",
+    "run",
+    "task",
     "tasks"
   ],
   "verb": {
     "toc": false,
     "layout": "default",
-    "reflinks": [
-      "base",
-      "base-watch",
-      "composer"
+    "tasks": [
+      "readme"
     ],
     "plugins": [
       "gulp-format-md"
     ],
     "related": {
+      "highlight": "base-watch",
+      "description": "Other base plugins you might be interested in:",
       "list": [
         "base",
         "base-cli",
@@ -51,6 +60,12 @@
         "base-plugins",
         "base-store"
       ]
-    }
+    },
+    "reflinks": [
+      "base",
+      "base-generators",
+      "base-watch",
+      "composer"
+    ]
   }
 }
