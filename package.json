@@ -20,12 +20,12 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.11.2"
+    "composer": "^0.11.3"
   },
   "devDependencies": {
-    "base": "^0.7.2",
-    "gulp-format-md": "^0.1.5",
-    "mocha": "*"
+    "base": "^0.8.1",
+    "gulp-format-md": "^0.1.7",
+    "mocha": "^2.4.5"
   },
   "keywords": [
     "base",
