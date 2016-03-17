@@ -10,8 +10,8 @@
 module.exports = function(name) {
   var Composer = require('composer');
 
-  return function() {
-    if (this.isRegistered('base-task')) return;
+  return function(app) {
+    if (!isValidInstance(app)) return;
 
     // original constructor reference
     var ctor = this.constructor;
@@ -22,3 +22,17 @@ module.exports = function(name) {
     this.constructor = ctor;
   };
 };
+
+function isValidInstance(app) {
+  var fn = app.options.validatePlugin;
+  if (typeof fn === 'function' && !fn(app)) {
+    return false;
+  }
+  if (app.isRegistered('base-task')) {
+    return false;
+  }
+  if (app.isCollection || app.isView || app.isItem) {
+    return false;
+  }
+  return true;
+}
