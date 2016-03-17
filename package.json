@@ -1,7 +1,7 @@
 {
   "name": "base-task",
   "description": "base plugin that provides a very thin wrapper around <https://github.com/doowb/composer> for adding task methods to your application.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "homepage": "https://github.com/node-base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "node-base/base-task",
