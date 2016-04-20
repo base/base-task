@@ -10,7 +10,7 @@
 module.exports = function(name) {
   var Composer = require('composer');
 
-  return function(app) {
+  return function baseTask(app) {
     if (!isValidInstance(app)) return;
 
     // original constructor reference
@@ -20,6 +20,7 @@ module.exports = function(name) {
 
     // restore original constructor
     this.constructor = ctor;
+    return baseTask;
   };
 };
 
