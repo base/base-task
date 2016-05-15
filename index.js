@@ -7,8 +7,15 @@
 
 'use strict';
 
-module.exports = function(name) {
+
+module.exports = function(name, fn) {
+  var isRegistered = require('is-registered');
   var Composer = require('composer');
+
+  if (typeof name === 'function') {
+    fn = name;
+    name = undefined;
+  }
 
   return function baseTask(app) {
     if (!isValidInstance(app)) return;
@@ -22,18 +29,15 @@ module.exports = function(name) {
     this.constructor = ctor;
     return baseTask;
   };
+
+  function isValidInstance(app, fn) {
+    if (typeof fn === 'function') {
+      return fn(app, 'base-task');
+    }
+    if (app && typeof app === 'object' && (app.isCollection || app.isView)) {
+      return false;
+    }
+    return !isRegistered(app, 'base-task');
+  }
 };
 
-function isValidInstance(app) {
-  var fn = app.options.validatePlugin;
-  if (typeof fn === 'function' && !fn(app)) {
-    return false;
-  }
-  if (app.isRegistered('base-task')) {
-    return false;
-  }
-  if (app.isCollection || app.isView || app.isItem) {
-    return false;
-  }
-  return true;
-}
