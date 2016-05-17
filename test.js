@@ -9,6 +9,7 @@ var base;
 describe('tasks', function() {
   beforeEach(function() {
     base = new Base();
+    base.isApp = true;
     base.use(tasks());
   });
 
@@ -19,6 +20,7 @@ describe('tasks', function() {
   it('should not register the plugin more than once', function() {
     var count = 0;
     base = new Base();
+    base.isApp = true;
     base.on('plugin', function() {
       count++;
     });

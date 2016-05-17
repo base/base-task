@@ -9,6 +9,7 @@
 
 
 module.exports = function(name, fn) {
+  var isValidInstance = require('is-valid-instance');
   var isRegistered = require('is-registered');
   var Composer = require('composer');
 
@@ -18,7 +19,7 @@ module.exports = function(name, fn) {
   }
 
   return function baseTask(app) {
-    if (!isValidInstance(app)) return;
+    if (!isValid(app)) return;
 
     // original constructor reference
     var ctor = this.constructor;
@@ -30,14 +31,15 @@ module.exports = function(name, fn) {
     return baseTask;
   };
 
-  function isValidInstance(app, fn) {
-    if (typeof fn === 'function') {
-      return fn(app, 'base-task');
-    }
-    if (app && typeof app === 'object' && (app.isCollection || app.isView)) {
+
+  function isValid(app) {
+    if (!isValidInstance(app)) {
       return false;
     }
-    return !isRegistered(app, 'base-task');
+    if (isRegistered(app, 'base-task')) {
+      return false;
+    }
+    return true;
   }
 };
 
