@@ -54,9 +54,6 @@ module.exports = function(name, fn) {
       task.status = 'finished';
       self.emit('task', task);
     });
-    this.on('task', function() {
-      console.log(arguments)
-    });
 
     // restore original constructor
     this.constructor = ctor;
