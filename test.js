@@ -46,13 +46,13 @@ describe('tasks', function() {
   });
 
   it('should run a task:', function(cb) {
-    var res = null;
-    base.task('a', function(cb) {
-      res = 'abc';
-      cb();
+    var count = 0;
+    base.task('a', function(next) {
+      count++;
+      next();
     });
     base.build('a', function(err) {
-      assert.equal(res, 'abc');
+      assert.equal(count, 1);
       cb();
     });
   });
