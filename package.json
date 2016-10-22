@@ -4,6 +4,11 @@
   "version": "0.6.1",
   "homepage": "https://github.com/node-base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [
+    "Brian Woodward <brian.woodward@gmail.com> (https://github.com/doowb)",
+    "Dave Quick <dq@dq.gg> (http://dq.gg)",
+    "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
+  ],
   "repository": "node-base/base-task",
   "bugs": {
     "url": "https://github.com/node-base/base-task/issues"
@@ -29,17 +34,27 @@
     "mocha": "^2.4.5"
   },
   "keywords": [
+    "api",
+    "app",
+    "application",
     "base",
     "baseplugin",
     "build",
+    "building-blocks",
     "composer",
     "control",
+    "create",
     "flow",
+    "framework",
     "generate",
     "plugin",
+    "plugins",
     "run",
     "task",
-    "tasks"
+    "tasks",
+    "tool",
+    "toolkit",
+    "tools"
   ],
   "verb": {
     "toc": false,
@@ -66,7 +81,9 @@
       "base",
       "base-generators",
       "base-watch",
-      "composer"
+      "composer",
+      "verb",
+      "verb-generate-readme"
     ]
   }
 }
