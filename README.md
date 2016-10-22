@@ -17,9 +17,10 @@ $ npm install base-task --save
 ```js
 var Base = require('base-methods');
 var tasks = require('base-task');
-Base.use(tasks());
 
 var base = new Base();
+base.isApp = true;
+base.use(tasks());
 base.task('foo', function(cb) {
   console.log('this is foo!');
   cb();
