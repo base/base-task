@@ -5,7 +5,7 @@
   "homepage": "https://github.com/node-base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
-    "Brian Woodward <brian.woodward@gmail.com> (https://github.com/doowb)",
+    "Brian Woodward <brian.woodward@gmail.com> (https://twitter.com/doowb)",
     "Dave Quick <dq@dq.gg> (http://dq.gg)",
     "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
   ],
@@ -26,18 +26,19 @@
   },
   "dependencies": {
     "composer": "^0.14.0",
-    "is-valid-app": "^0.2.1"
+    "is-valid-app": "^0.3.0"
   },
   "devDependencies": {
-    "base": "^0.8.1",
-    "gulp-format-md": "^0.1.9",
-    "mocha": "^2.4.5"
+    "base": "^0.13.0",
+    "gulp-format-md": "^0.1.12",
+    "mocha": "^3.3.0"
   },
   "keywords": [
     "api",
     "app",
     "application",
     "base",
+    "base-plugin",
     "baseplugin",
     "build",
     "building-blocks",
@@ -78,12 +79,8 @@
       ]
     },
     "reflinks": [
-      "base",
-      "base-generators",
       "base-watch",
-      "composer",
-      "verb",
-      "verb-generate-readme"
+      "composer"
     ]
   }
 }
