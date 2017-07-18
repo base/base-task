@@ -5,9 +5,9 @@
   "homepage": "https://github.com/node-base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
-    "Brian Woodward <brian.woodward@gmail.com> (https://twitter.com/doowb)",
-    "Dave Quick <dq@dq.gg> (http://dq.gg)",
-    "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
+    "Brian Woodward (https://twitter.com/doowb)",
+    "Dave Quick (http://dq.gg)",
+    "Jon Schlinkert (http://twitter.com/jonschlinkert)"
   ],
   "repository": "node-base/base-task",
   "bugs": {
@@ -25,13 +25,13 @@
     "test": "mocha"
   },
   "dependencies": {
-    "composer": "^0.14.0",
+    "composer": "^0.14.2",
     "is-valid-app": "^0.3.0"
   },
   "devDependencies": {
     "base": "^0.13.0",
-    "gulp-format-md": "^0.1.12",
-    "mocha": "^3.3.0"
+    "gulp-format-md": "^1.0.0",
+    "mocha": "^3.4.2"
   },
   "keywords": [
     "api",
