@@ -1,63 +1,21 @@
 /*!
- * base-task <https://github.com/node-base/base-task>
+ * base-task <https://github.com/base/base-task>
  *
- * Copyright (c) 2015-2017, Jon Schlinkert.
+ * Copyright (c) 2015-2018, Jon Schlinkert.
  * Released under the MIT License.
  */
 
-'use strict';
+const define = require('define-property');
+const Composer = require('composer');
 
-
-module.exports = function(name, fn) {
-  var isValid = require('is-valid-app');
-  var composer = require('composer');
-
-  if (typeof name === 'function') {
-    fn = name;
-    name = undefined;
-  }
-
-  return function baseTask(app) {
-    if (!isValid(app, 'base-task')) return;
-
-    // original constructor reference
-    var ctor = this.constructor;
-    composer.call(this, name);
-    this.visit('define', composer.prototype);
-    var self = this;
-    var emit = this.emit;
-
-    // fix build events
-    this.on('starting', function(app, build) {
-      build.status = 'starting';
-      self.emit('build', build);
-    });
-    this.on('finished', function(app, build) {
-      build.status = 'finished';
-      self.emit('build', build);
-    });
-
-    // fix task events
-    this.emit = function(key, val, task) {
-      if (key === 'task' && typeof val === 'undefined' && task) {
-        task.status = 'register';
-        self.emit('task', task);
-        return;
+module.exports = function(name) {
+  return function plugin(app) {
+    for (const key of Object.getOwnPropertyNames(Composer.prototype)) {
+      if (!(key in this) && key !== 'prototype' && key !== 'constructor' && key !== 'name') {
+        define(this, key, Composer.prototype[key]);
       }
-      return emit.apply(self, arguments);
-    };
-    this.on('task:starting', function(app, task) {
-      task.status = 'starting';
-      self.emit('task', task);
-    });
-    this.on('task:finished', function(app, task) {
-      task.status = 'finished';
-      self.emit('task', task);
-    });
-
-    // restore original constructor
-    this.constructor = ctor;
-    return baseTask;
+    }
+    this.tasks = this.tasks || {};
+    return plugin;
   };
 };
-
