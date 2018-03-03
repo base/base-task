@@ -2,16 +2,16 @@
   "name": "base-task",
   "description": "Base plugin that provides a very thin wrapper around <https://github.com/doowb/composer> for adding task methods to your Base application.",
   "version": "1.0.0",
-  "homepage": "https://github.com/node-base/base-task",
+  "homepage": "https://github.com/base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
     "Brian Woodward (https://twitter.com/doowb)",
     "Dave Quick (http://dq.gg)",
     "Jon Schlinkert (http://twitter.com/jonschlinkert)"
   ],
-  "repository": "node-base/base-task",
+  "repository": "base/base-task",
   "bugs": {
-    "url": "https://github.com/node-base/base-task/issues"
+    "url": "https://github.com/base/base-task/issues"
   },
   "license": "MIT",
   "files": [
@@ -19,7 +19,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8"
   },
   "scripts": {
     "test": "mocha"
