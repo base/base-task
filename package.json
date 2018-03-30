@@ -26,11 +26,10 @@
   },
   "dependencies": {
     "composer": "^2.0.2",
-    "define-property": "^2.0.2",
-    "is-valid-app": "^0.3.0"
+    "define-property": "^2.0.2"
   },
   "devDependencies": {
-    "base": "^2.0.1",
+    "base": "^3.0.0",
     "gulp-format-md": "^1.0.0",
     "mocha": "^3.5.3"
   },

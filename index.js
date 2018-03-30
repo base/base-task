@@ -8,14 +8,15 @@
 const define = require('define-property');
 const Composer = require('composer');
 
-module.exports = function(name) {
-  return function plugin(app) {
-    for (const key of Object.getOwnPropertyNames(Composer.prototype)) {
-      if (!(key in this) && key !== 'prototype' && key !== 'constructor' && key !== 'name') {
-        define(this, key, Composer.prototype[key]);
-      }
-    }
-    this.tasks = this.tasks || {};
-    return plugin;
+module.exports = function(options) {
+  return function(app) {
+    this.composer = new Composer(options);
+    this.tasks = this.composer.tasks;
+    define(this, 'build', this.composer.build.bind(this.composer));
+    define(this, 'task', this.composer.task.bind(this.composer));
+    define(this, 'parallel', this.composer.parallel.bind(this.composer));
+    define(this, 'series', this.composer.series.bind(this.composer));
+    this.composer.on('build', this.emit.bind(this, 'build'));
+    this.composer.on('task', this.emit.bind(this, 'task'));
   };
 };

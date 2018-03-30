@@ -20,10 +20,10 @@ describe('tasks', function() {
     let count = 0;
     base = new Base();
     base.on('plugin', () => (count++));
-    base.use(tasks());
-    base.use(tasks());
-    base.use(tasks());
-    base.use(tasks());
+    base.use('task', tasks());
+    base.use('task', tasks());
+    base.use('task', tasks());
+    base.use('task', tasks());
     assert.equal(count, 1);
   });
 
@@ -70,7 +70,7 @@ describe('tasks', function() {
     });
   });
 
-  it('should return a promise', function(cb) {
+  it('should return a promise', function() {
     let count = 0;
     base.task('a', function(next) {
       count++;
@@ -82,27 +82,21 @@ describe('tasks', function() {
       next();
     });
 
-    base.build(['a', 'b'])
+    return base.build(['a', 'b'])
       .then(() => {
         assert.equal(count, 2);
-        cb();
       });
   });
 
-  it('should emit task events', function(cb) {
+  it('should emit task events', async() => {
     let count = 0;
 
     base.on('task', task => {
       switch (task.status) {
         case 'register':
-          count++;
-          break;
         case 'starting':
-          count++;
-          break;
         case 'finished':
           count++;
-          break;
         default: {
           break;
         }
@@ -112,9 +106,7 @@ describe('tasks', function() {
     base.task('a', next => next());
     base.task('b', next => next());
 
-    base.build(['a', 'b'], function(err) {
-      assert.equal(count, 6);
-      cb();
-    });
+    await base.build(['a', 'b']);
+    assert.equal(count, 6);
   });
 });
