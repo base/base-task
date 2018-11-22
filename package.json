@@ -1,7 +1,7 @@
 {
   "name": "base-task",
   "description": "Base plugin that provides a very thin wrapper around <https://github.com/doowb/composer> for adding task methods to your Base application.",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "homepage": "https://github.com/base/base-task",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
