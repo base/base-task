@@ -93,12 +93,9 @@ describe('tasks', function() {
 
     base.on('task', task => {
       switch (task.status) {
-        case 'register':
         case 'starting':
-        case 'finished':
+        case 'finished': {
           count++;
-        default: {
-          break;
         }
       }
     });
@@ -107,6 +104,6 @@ describe('tasks', function() {
     base.task('b', next => next());
 
     await base.build(['a', 'b']);
-    assert.equal(count, 6);
+    assert.equal(count, 4);
   });
 });
